@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+<p>This is Booking App</p>
+
+<div *ngIf="one.Room1 >4">
+    <h2>Room 1</h2>
+    <p>Room 1 is full</p>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>RoomNumber</th>
+                <th>Roomtype</th>
+                <th>RoomPrice</th>
+                <th>Amenities</th>
+                <th>RoomCount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let room of roomlist">
+                <td>{{room.roomnumber}}</td>
+                <td>{{room.roomtype}}</td>
+                <td>{{room.roomprice}}</td>
+                <td>{{room.amenities}}</td>
+                <td>{{room.roomcount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

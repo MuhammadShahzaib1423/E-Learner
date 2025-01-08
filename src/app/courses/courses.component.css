@@ -1,0 +1,25 @@
+.section-title{
+   color: rgb(255, 182, 6);
+}
+.jnbtn{
+   background-color:   rgb(255, 182, 6) ; 
+   color: black;
+   font-weight: bold;
+}
+
+
+.jnbtn:hover{
+   background-color: black;
+   color: white;
+   cursor: pointer;
+}
+.rdbtn{
+   background-color: black;
+   color: white;
+   font-weight: bold;
+}
+
+.rdbtn:hover{
+   background-color: rgb(255, 182, 6);
+   color: black;
+}
