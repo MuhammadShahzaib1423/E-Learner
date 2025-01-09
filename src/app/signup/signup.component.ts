@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup,Validators,FormControl } from '@angular/forms';
-
-
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../Services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -10,18 +9,31 @@ import { FormGroup,Validators,FormControl } from '@angular/forms';
 })
 
 export class SignupComponent {
-  constructor() { }
-  title = 'Signup Page';
-  signupForm: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)])
-  });
+  signupform: FormGroup;
 
-onSubmit(){
-  console.log(this.signupForm.value);
-  alert('Form Submitted Successfully');
-}
+  constructor(private fb: FormBuilder, private authService: AuthService,private router:Router) {
+    this.signupform = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
 
+  onSignup(): void {  
+    if (this.signupform.valid) {
+      const { email, password } = this.signupform.value;
+      const success = this.authService.signup(email, password);
 
+      if (success) {
+        alert('Signup successful');
+        console.log('Signup successful');
+        this.signupform.reset();
+      } else {
+        alert('Email already exists');
+      }
+    }
+  }
+  onSubmit(){
+    this.router.navigate(['/login']);
+    console.log('Login button clicked');
+  }
 }

@@ -6,7 +6,9 @@
     }
     
   
-    
+  .gradient-form{
+    height: 100vh;
+  }  
     .loginbtn{
     background-color:   rgb(255, 182, 6) ;
     color: black;

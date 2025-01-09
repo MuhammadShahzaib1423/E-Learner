@@ -13,30 +13,30 @@
                   <h4 class="mt-1 mb-5 pb-1">We are The eLearner Team</h4>
                 </div>
 
-                <form>
-                  <p>Please login to your account</p>
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                  <h3 class="text-center pb-4">Please login to your account</h3>
 
                   <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example11">Username</label>
-                    <input type="email" id="form2Example11" class="form-control"
+                    <input type="email" id="form2Example11" formControlName="email" class="form-control"
                       placeholder="Phone number or email address" />
                    
                   </div>
 
                   <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form2Example22">Password</label>
-                    <input type="password" id="form2Example22" class="form-control" />
+                    <input type="password" id="form2Example22" formControlName="password" class="form-control" />
          
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn  btn-block fa-lg loginbtn p-3 mb-3"  type="button">Login</button>
+                    <button class="btn  btn-block fa-lg loginbtn p-3 mb-3"  type="submit">Login</button>
                   
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Don't have an account?</p>
-                    <button  type="button"  class="btn createbtn">Create new</button>
+                    <button  type="button"  class="btn createbtn" (click)="onsubmit()" >Create new</button>
                   </div>
 
                 </form>
